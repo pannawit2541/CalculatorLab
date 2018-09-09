@@ -16,6 +16,7 @@ namespace CPE200Lab1
         private bool isContainDot = false;
         private bool isSpaceAllowed = false;
         private RPNCalculatorEngine engine;
+        string M_memory;
 
         public ExtendForm()
         {
@@ -23,6 +24,31 @@ namespace CPE200Lab1
             engine = new RPNCalculatorEngine();
         }
         
+        private void btnM_Click(object sender, EventArgs e)
+        {
+            string operate = ((Button)sender).Text;
+            lblDisplay.Text = engine.Process(lblDisplay.Text);
+            switch (operate)
+            {
+                case "M+":
+                    M_memory = (Convert.ToDouble(M_memory) + Convert.ToDouble(lblDisplay.Text)).ToString();
+                    break;
+                case "M-":
+                    M_memory = (Convert.ToDouble(M_memory) - Convert.ToDouble(lblDisplay.Text)).ToString();
+                    break;
+                case "MR":
+                    lblDisplay.Text = M_memory.ToString();
+                    break;
+                case "MS":
+                    M_memory = lblDisplay.Text; 
+                    break;
+                case "MC":
+                    M_memory = "";
+                    break;
+
+            }
+        }
+
         private bool isOperator(char ch)
         {
             switch(ch) {
@@ -36,6 +62,11 @@ namespace CPE200Lab1
             return false;
         }
        
+        private void btnCon_Click(object sender, EventArgs e)
+        {
+           lblDisplay.Text = (-1 * Convert.ToDouble(lblDisplay.Text)).ToString();
+        }
+
         private void btnNumber_Click(object sender, EventArgs e)
         {
             if (lblDisplay.Text is "Error")
@@ -55,15 +86,13 @@ namespace CPE200Lab1
             isSpaceAllowed = true;
         }
 
-        private void btnSqrt_Click(object sender, EventArgs e)
+
+        private void btnSqrtandOverX_Click(object sender, EventArgs e)
         {
-           lblDisplay.Text =  engine.ProcessSqrt(lblDisplay.Text, ((Button)sender).Text);
+           lblDisplay.Text =  engine.Process_Sqrt_OverX(lblDisplay.Text, ((Button)sender).Text);
         }
 
-        private void btnpercent_Click(object sender, EventArgs e)
-        {
 
-        }
         private void btnBinaryOperator_Click(object sender, EventArgs e)
         {
             if (lblDisplay.Text is "Error")
@@ -107,6 +136,7 @@ namespace CPE200Lab1
             isContainDot = false;
             isNumberPart = false;
             isSpaceAllowed = false;
+            
         }
 
         private void btnEqual_Click(object sender, EventArgs e)

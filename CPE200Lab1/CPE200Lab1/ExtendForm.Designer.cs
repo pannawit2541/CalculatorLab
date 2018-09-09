@@ -141,7 +141,7 @@
             this.btnSign.TabIndex = 32;
             this.btnSign.Text = "±";
             this.btnSign.UseVisualStyleBackColor = false;
-            this.btnSign.Click += new System.EventHandler(this.btnSign_Click);
+            this.btnSign.Click += new System.EventHandler(this.btnCon_Click);
             // 
             // btnPlus
             // 
@@ -322,6 +322,7 @@
             this.button1.TabIndex = 42;
             this.button1.Text = "MC";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.btnM_Click);
             // 
             // button2
             // 
@@ -333,6 +334,7 @@
             this.button2.TabIndex = 43;
             this.button2.Text = "MR";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.btnM_Click);
             // 
             // button3
             // 
@@ -344,6 +346,7 @@
             this.button3.TabIndex = 44;
             this.button3.Text = "MS";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.btnM_Click);
             // 
             // button4
             // 
@@ -355,6 +358,7 @@
             this.button4.TabIndex = 45;
             this.button4.Text = "M+";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.btnM_Click);
             // 
             // button5
             // 
@@ -366,6 +370,7 @@
             this.button5.TabIndex = 46;
             this.button5.Text = "M-";
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.btnM_Click);
             // 
             // button6
             // 
@@ -377,7 +382,7 @@
             this.button6.TabIndex = 47;
             this.button6.Text = "√";
             this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.btnSqrt_Click);
+            this.button6.Click += new System.EventHandler(this.btnSqrtandOverX_Click);
             // 
             // button7
             // 
@@ -401,6 +406,7 @@
             this.button8.TabIndex = 49;
             this.button8.Text = "1/x";
             this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.btnSqrtandOverX_Click);
             // 
             // ExtendForm
             // 

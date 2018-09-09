@@ -8,12 +8,12 @@ namespace CPE200Lab1
 {
     public class RPNCalculatorEngine : CalculatorEngine
     {
-       public string ProcessSqrt(string str,string operate)
+       public string Process_Sqrt_OverX(string str,string operate)
         {
             return unaryCalculate(operate, str);
         }
 
-        public string Process(string str)
+       public string Process(string str)
         {
             Stack<string> numberStack = new Stack<string>();
             string[] parts_stack = str.Split(' ');
