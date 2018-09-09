@@ -122,6 +122,7 @@ namespace CPE200Lab1
                 case "%":
                     //your code here
                     break;
+  
             }
             return "E";
         }
