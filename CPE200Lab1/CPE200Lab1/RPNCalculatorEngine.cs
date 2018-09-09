@@ -8,6 +8,11 @@ namespace CPE200Lab1
 {
     public class RPNCalculatorEngine : CalculatorEngine
     {
+       public string ProcessSqrt(string str,string operate)
+        {
+            return unaryCalculate(operate, str);
+        }
+
         public string Process(string str)
         {
             Stack<string> numberStack = new Stack<string>();

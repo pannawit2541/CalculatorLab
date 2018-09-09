@@ -10,19 +10,19 @@ using System.Windows.Forms;
 
 namespace CPE200Lab1
 {
-    public partial class ExtendForm : Form
+    public partial class ExtendForm : Form 
     {
         private bool isNumberPart = false;
         private bool isContainDot = false;
         private bool isSpaceAllowed = false;
-        private CalculatorEngine engine;
+        private RPNCalculatorEngine engine;
 
         public ExtendForm()
         {
             InitializeComponent();
-            engine = new CalculatorEngine();
+            engine = new RPNCalculatorEngine();
         }
-
+        
         private bool isOperator(char ch)
         {
             switch(ch) {
@@ -30,11 +30,12 @@ namespace CPE200Lab1
                 case '-':
                 case 'X':
                 case '÷':
+                case '%':
                     return true;
             }
             return false;
         }
-
+       
         private void btnNumber_Click(object sender, EventArgs e)
         {
             if (lblDisplay.Text is "Error")
@@ -54,6 +55,15 @@ namespace CPE200Lab1
             isSpaceAllowed = true;
         }
 
+        private void btnSqrt_Click(object sender, EventArgs e)
+        {
+           lblDisplay.Text =  engine.ProcessSqrt(lblDisplay.Text, ((Button)sender).Text);
+        }
+
+        private void btnpercent_Click(object sender, EventArgs e)
+        {
+
+        }
         private void btnBinaryOperator_Click(object sender, EventArgs e)
         {
             if (lblDisplay.Text is "Error")
