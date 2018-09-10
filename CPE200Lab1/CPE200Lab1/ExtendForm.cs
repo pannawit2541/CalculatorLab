@@ -89,7 +89,25 @@ namespace CPE200Lab1
 
         private void btnSqrtandOverX_Click(object sender, EventArgs e)
         {
-           lblDisplay.Text =  engine.Process_Sqrt_OverX(lblDisplay.Text, ((Button)sender).Text);
+            string[] parts = lblDisplay.Text.Split(' ');
+            string result;
+            result =  engine.Process_Sqrt_OverX(parts[parts.Length - 1], ((Button)sender).Text);
+            string current = lblDisplay.Text;
+            if (current[current.Length - 1] is ' ' && current.Length > 2 && isOperator(current[current.Length - 2]))
+            {
+                lblDisplay.Text = current.Substring(0, current.Length - 3);
+            }
+            else
+            {
+                lblDisplay.Text = current.Substring(0, current.Length - 1);
+            }
+            if (lblDisplay.Text is "")
+            {
+                lblDisplay.Text = "0";
+            }
+            //current = lblDisplay.Text;
+            lblDisplay.Text += result;
+
         }
 
 
