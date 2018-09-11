@@ -8,17 +8,17 @@ namespace CPE200Lab1
 {
     public class RPNCalculatorEngine : CalculatorEngine
     {
-       public string Process_Sqrt_OverX(string str,string operate)
+        public string Process_Sqrt_OverX(string str, string operate)
         {
             return unaryCalculate(operate, str);
         }
 
-       public string Process(string str)
+        public string Process(string str)
         {
             Stack<string> numberStack = new Stack<string>();
             string[] parts_stack = str.Split(' ');
 
-            for(int i=0; i < parts_stack.Length ; i++)
+            for (int i = 0; i < parts_stack.Length; i++)
             {
                 if (isNumber(parts_stack[i]))
                 {
@@ -26,17 +26,17 @@ namespace CPE200Lab1
                 }
                 else if (isOperator(parts_stack[i]))
                 {
-                    if(numberStack.Count < 2)
+                    if (numberStack.Count < 2)
                     {
                         return "E";
                     }
                     string Second_Number = numberStack.Pop();
                     string First_Number = numberStack.Pop();
-                    numberStack.Push(calculate(parts_stack[i], First_Number, Second_Number)) ;
+                    numberStack.Push(calculate(parts_stack[i], First_Number, Second_Number));
                 }
 
             }
-            if(numberStack.Count != 1)
+            if (numberStack.Count != 1)
             {
                 return "E";
             }

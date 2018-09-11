@@ -39,7 +39,7 @@ namespace CPE200Lab1
             }
 
         }
-        public string unaryCalculate(string operate, string operand, int maxOutputSize = 8)
+        public string unaryCalculate(string operate, string operand,int maxOutputSize = 8)
         {
             switch (operate)
             {
@@ -91,8 +91,6 @@ namespace CPE200Lab1
         {
             switch (operate)
             {
-                case "%":
-                    return (Convert.ToDouble(secondOperand) *100 /  Convert.ToDouble(firstOperand)).ToString();
                 case "+":
                     return (Convert.ToDouble(firstOperand) + Convert.ToDouble(secondOperand)).ToString();
                 case "-":
