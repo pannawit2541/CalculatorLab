@@ -10,7 +10,7 @@ namespace CPE200Lab1
     {
         public string Process_Sqrt_OverX(string str, string operate)
         {
-            return unaryCalculate(operate, str);
+                return unaryCalculate(operate, str);
         }
 
         public string Process(string str)

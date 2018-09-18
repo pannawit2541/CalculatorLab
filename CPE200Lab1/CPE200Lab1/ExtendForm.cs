@@ -109,7 +109,14 @@ namespace CPE200Lab1
                 lblDisplay.Text = "0";
             }
             //current = lblDisplay.Text;
-            lblDisplay.Text += result;
+            if (lblDisplay.Text == "0")
+            {
+                lblDisplay.Text = result;
+            }
+            else
+            {
+                lblDisplay.Text += result;
+            }
 
         }
 
