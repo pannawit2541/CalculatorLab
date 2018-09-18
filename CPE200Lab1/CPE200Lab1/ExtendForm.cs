@@ -24,6 +24,7 @@ namespace CPE200Lab1
             engine = new RPNCalculatorEngine();
         }
 
+        //code botton M+,M-,MR,MS and Mc 
         private void btnM_Click(object sender, EventArgs e)
         {
             string operate = ((Button)sender).Text;
@@ -67,7 +68,22 @@ namespace CPE200Lab1
 
         private void btnCon_Click(object sender, EventArgs e)
         {
-            lblDisplay.Text = (-1 * Convert.ToDouble(lblDisplay.Text)).ToString();
+            string[] parts = lblDisplay.Text.Split(' ');
+            string result;
+            string current = lblDisplay.Text;
+            result = (-1 * Convert.ToDouble(parts[parts.Length-1])).ToString();
+            //Backspace for add new input
+            if (current[current.Length - 1] is ' ' && current.Length > 2 && isOperator(current[current.Length - 2]))
+            {
+                lblDisplay.Text = current.Substring(0, current.Length - 3);
+            }
+            else
+            {
+                lblDisplay.Text = current.Substring(0, current.Length - 1);
+            }
+                //add new input
+                lblDisplay.Text += result;
+
         }
 
         private void btnNumber_Click(object sender, EventArgs e)
@@ -96,6 +112,8 @@ namespace CPE200Lab1
             string result;
             result = engine.Process_Sqrt_OverX(parts[parts.Length - 1], ((Button)sender).Text);
             string current = lblDisplay.Text;
+            
+            //Backspace for add new input
             if (current[current.Length - 1] is ' ' && current.Length > 2 && isOperator(current[current.Length - 2]))
             {
                 lblDisplay.Text = current.Substring(0, current.Length - 3);
@@ -104,12 +122,19 @@ namespace CPE200Lab1
             {
                 lblDisplay.Text = current.Substring(0, current.Length - 1);
             }
-            if (lblDisplay.Text is "")
+
+            //check result
+            if(result == "E")
             {
-                lblDisplay.Text = "0";
+                lblDisplay.Text = "Error";
             }
-            //current = lblDisplay.Text;
-            lblDisplay.Text += result;
+            else
+            {
+                //add new input
+                lblDisplay.Text += result;
+            }
+            
+            
 
         }
 

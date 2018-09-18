@@ -17,30 +17,44 @@ namespace CPE200Lab1
         {
             Stack<string> numberStack = new Stack<string>();
             string[] parts_stack = str.Split(' ');
-
             for (int i = 0; i < parts_stack.Length; i++)
             {
+                string Second_Number;
+                string First_Number;
                 if (isNumber(parts_stack[i]))
                 {
                     numberStack.Push(parts_stack[i]);
                 }
                 else if (isOperator(parts_stack[i]))
                 {
+                    /*
                     if (numberStack.Count < 2)
                     {
                         return "E";
+                    }*/
+                    try
+                    {
+                        Second_Number = numberStack.Pop();
+                        First_Number = numberStack.Pop();
                     }
-                    string Second_Number = numberStack.Pop();
-                    string First_Number = numberStack.Pop();
+                    catch (Exception)
+                    {
+                        return "E";
+                    }
+                    
                     numberStack.Push(calculate(parts_stack[i], First_Number, Second_Number));
                 }
 
             }
+            //check Length of stack must equal 1
             if (numberStack.Count != 1)
-            {
-                return "E";
-            }
+                {
+                    return "E";
+                }
+            //check length of stack
             return numberStack.Pop();
         }
+
+
     }
 }
