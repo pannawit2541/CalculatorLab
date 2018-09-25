@@ -27,11 +27,6 @@ namespace CPE200Lab1
                 }
                 else if (isOperator(parts_stack[i]))
                 {
-                    /*
-                    if (numberStack.Count < 2)
-                    {
-                        return "E";
-                    }*/
                     try
                     {
                         Second_Number = numberStack.Pop();
