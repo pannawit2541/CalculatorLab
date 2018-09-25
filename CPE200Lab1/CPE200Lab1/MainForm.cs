@@ -21,6 +21,9 @@ namespace CPE200Lab1
         private double memory;
         private CalculatorEngine engine;
 
+        /// <summary>
+        /// Reset All Variable
+        /// </summary>
         private void resetAll()
         {
             lblDisplay.Text = "0";
@@ -32,7 +35,11 @@ namespace CPE200Lab1
         }
 
       
-
+        /// <summary>
+        /// Main Class
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public MainForm()
         {
             InitializeComponent();
@@ -41,6 +48,7 @@ namespace CPE200Lab1
             resetAll();
         }
 
+       
         private void btnNumber_Click(object sender, EventArgs e)
         {
             if (lblDisplay.Text is "Error")
@@ -68,6 +76,11 @@ namespace CPE200Lab1
             lblDisplay.Text += digit;
             isAfterOperater = false;
         }
+        /// <remarks>
+        /// This class calculate Sqrt and Overx
+        /// </remarks>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void btnUnaryOperator_Click(object sender, EventArgs e)
         {
@@ -93,6 +106,11 @@ namespace CPE200Lab1
 
         }
 
+        /// <remarks>
+        /// This class calculate Normal Operator
+        /// </remarks>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnOperator_Click(object sender, EventArgs e)
         {
             if (lblDisplay.Text is "Error")
@@ -133,6 +151,11 @@ namespace CPE200Lab1
             isAllowBack = false;
         }
 
+        /// <remarks>
+        /// This class is Equal Operator
+        /// </remarks>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnEqual_Click(object sender, EventArgs e)
         {
             if (lblDisplay.Text is "Error")

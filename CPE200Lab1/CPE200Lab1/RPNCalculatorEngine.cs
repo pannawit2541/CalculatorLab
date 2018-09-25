@@ -47,9 +47,15 @@ namespace CPE200Lab1
                 {
                     return "E";
                 }
-            //check length of stack
+
+            ///<return>
+            /// Return only one number of String
+            ///</return>
+
             return numberStack.Pop();
         }
+        
+        
 
 
     }

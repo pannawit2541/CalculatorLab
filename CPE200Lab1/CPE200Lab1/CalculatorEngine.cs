@@ -39,6 +39,11 @@ namespace CPE200Lab1
             }
 
         }
+        /// <remarks>
+        /// This class is Equal Operator
+        /// </remarks>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public string unaryCalculate(string operate, string operand,int maxOutputSize = 8)
         {
             switch (operate)
@@ -87,6 +92,11 @@ namespace CPE200Lab1
             return "E";
         }
 
+        /// <remarks>
+        /// This class calculate Normal Operator
+        /// </remarks>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public string calculate(string operate, string firstOperand, string secondOperand, int maxOutputSize = 8)
         {
             switch (operate)
