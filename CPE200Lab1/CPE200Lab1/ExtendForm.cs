@@ -15,13 +15,13 @@ namespace CPE200Lab1
         private bool isNumberPart = false;
         private bool isContainDot = false;
         private bool isSpaceAllowed = false;
-        private RPNCalculatorEngine engine;
+        protected RPNCalculatorEngine myEngine;
         string M_memory;
 
         public ExtendForm()
         {
             InitializeComponent();
-            engine = new RPNCalculatorEngine();
+            myEngine = new RPNCalculatorEngine();
         }
 
         private void btnM_Click(object sender, EventArgs e)
@@ -31,11 +31,11 @@ namespace CPE200Lab1
             switch (operate)
             {
                 case "M+":
-                    lblDisplay.Text = engine.Process(lblDisplay.Text);
+                    lblDisplay.Text = myEngine.Process(lblDisplay.Text);
                     M_memory = (Convert.ToDouble(M_memory) + Convert.ToDouble(lblDisplay.Text)).ToString();
                     break;
                 case "M-":
-                    lblDisplay.Text = engine.Process(lblDisplay.Text);
+                    lblDisplay.Text = myEngine.Process(lblDisplay.Text);
                     M_memory = (Convert.ToDouble(M_memory) - Convert.ToDouble(lblDisplay.Text)).ToString();
                     break;
                 case "MR":
@@ -94,7 +94,7 @@ namespace CPE200Lab1
         {
             string[] parts = lblDisplay.Text.Split(' ');
             string result;
-            result = engine.Process_Sqrt_OverX(parts[parts.Length - 1], ((Button)sender).Text);
+            result = myEngine.Process_Sqrt_OverX(parts[parts.Length - 1], ((Button)sender).Text);
             string current = lblDisplay.Text;
             if (current[current.Length - 1] is ' ' && current.Length > 2 && isOperator(current[current.Length - 2]))
             {
@@ -170,7 +170,7 @@ namespace CPE200Lab1
 
         private void btnEqual_Click(object sender, EventArgs e)
         {
-            string result = engine.Process(lblDisplay.Text);
+            string result = myEngine.Process(lblDisplay.Text);
             if (result is "E")
             {
                 lblDisplay.Text = "Error";

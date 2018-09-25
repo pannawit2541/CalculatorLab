@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace CPE200Lab1
 {
-    public class RPNCalculatorEngine : CalculatorEngine
+
+    public class RPNCalculatorEngine : TheCalculatorEngine
     {
+        Stack<string> numberStack;
         public string Process_Sqrt_OverX(string str, string operate)
         {
 
@@ -17,7 +19,7 @@ namespace CPE200Lab1
 
         public string Process(string str)
         {
-            Stack<string> numberStack = new Stack<string>();
+            numberStack = new Stack<string>();
             string[] parts_stack = str.Split(' ');
 
             for (int i = 0; i < parts_stack.Length; i++)
