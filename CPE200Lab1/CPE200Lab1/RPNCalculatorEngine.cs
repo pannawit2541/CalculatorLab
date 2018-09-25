@@ -34,6 +34,7 @@ namespace CPE200Lab1
                     }
                     catch (Exception)
                     {
+                        Console.WriteLine("Error");
                         return "E";
                     }
                     
